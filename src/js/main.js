@@ -14,6 +14,7 @@ class Todo {
 
 let toDoList = [new Todo("äta",false),new Todo("gymma",false),new Todo("plugga",false),new Todo("sova",false),new Todo("städa",false),]
 
+//myList = toDoList;
 
 function createList(){
 let myDiv = document.getElementById("listdiv");
@@ -35,12 +36,13 @@ for (i=0;i<toDoList.length;i++){
     myDiv.appendChild(newUl);
     newLi.addEventListener("click", ()=>{
         myCheckbox(newInput, newLi, hej)}); 
-        console.log(toDoList[i])
+        
         
 
 } 
- 
+console.log(toDoList)
 }
+
 
 function myCheckbox(myInput, newLi, myList) {
     console.log(myList)
@@ -48,14 +50,18 @@ function myCheckbox(myInput, newLi, myList) {
     if (myInput.checked===true) {
         let index = toDoList.indexOf(myList);
         newLi.innerHTML = " ";
-
-        //toDoList.replace("")
         toDoList.splice(index,1)
-
-        console.log(index)
-        //console.log(toDoList)
+        console.log("denna todo låg på på index " +index)
+        if (myList.done===false){
+            myList.done=true;
+            console.log(myList.done)
+            return myList;
+            
+        }
     }
     else {
 
     }
+    console.log(myList)
 }
+
