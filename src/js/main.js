@@ -1,28 +1,43 @@
 
+
+//window.onload = function() {
+    //createList();
+    //console.log(toDoList);
+    
+//}
+
+
 let toDoList = ["äta","duscha","gymma","plugga"];
 
-console.log(toDoList);
 
-window.onload = function() {
-    createList();
-}
+//function createList(){
+let myDiv = document.getElementById("listdiv");
+let newUl = document.getElementById("myUl");
+myDiv.className="container";
+newUl.className="todoUl";
+myDiv.appendChild(newUl);
 
-
-
-function createList(){
 for (i=0;i<toDoList.length;i++){
     let newLi = document.createElement("li");
-    let newUl = document.getElementById("ul");
-    newLi.classList="list"
-    newLi.innerHTML=toDoList[i];
+    newLi.className="todoList"
+    let newInput = document.createElement("input")
+    newInput.setAttribute("type","checkbox");
+
+    newLi.innerHTML+=toDoList[i];
+    newInput.addEventListener("click", myCheckbox);
+    newLi.appendChild(newInput); 
     newUl.appendChild(newLi);
-    newLi.classList.add("clickable");
-    newLi.addEventListener("click", ()=>{handleClick(toDoList[i])})
+    myDiv.appendChild(newUl);
 } 
+function myCheckbox() {
+    if (myCheckbox===true) {
+        newLi.innerHTML="DONE";
+    }
+    else {
+       
+    }
 }
 
-function handleClick() {
-   console.log("du klickade på ", toDoList[i])
-}
+//}
 
 
