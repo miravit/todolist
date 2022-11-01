@@ -1,13 +1,20 @@
 
-
+class Todo {
+    constructor(name, finished) {
+        this.name=name;
+        this.finished=finished;
+    }
+}
 window.onload = function() {
     createList();
     //console.log(toDoList);
     
 }
 
-
-let toDoList = ["äta","duscha","gymma","plugga"];
+let item = [new Todo ("äta", false), new Todo ("duscha",false),new Todo ("gymma",false),new Todo ("plugga",false)];
+let toDoList = [];
+toDoList.push(item);
+console.log(toDoList)
 
 
 function createList(){
@@ -42,7 +49,7 @@ function myCheckbox(myInput, newLi, myList) {
         let index = toDoList.indexOf(myList);
         newLi.innerHTML = " ";
 
-        //toDoList.replac("")
+        //toDoList.replace("")
         toDoList.splice(index,1)
 
         console.log(index)
