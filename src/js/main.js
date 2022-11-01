@@ -24,24 +24,28 @@ for (i=0;i<toDoList.length;i++){
     newInput.setAttribute("type","checkbox");
 
     newLi.innerHTML+=toDoList[i];
-   
+    let hej = toDoList[i];
     newLi.appendChild(newInput); 
     newUl.appendChild(newLi);
     myDiv.appendChild(newUl);
     newLi.addEventListener("click", ()=>{
-        myCheckbox(newInput, newLi)}); 
-       //console.log(newLi)
+        myCheckbox(newInput, newLi, hej)}); 
         
 } 
  
 }
 
-function myCheckbox(myInput, newLi) {
-    console.log(newLi)
+function myCheckbox(myInput, newLi, myList) {
+    console.log(myList)
+    
     if (myInput.checked===true) {
-        let index = toDoList.indexOf(newLi)
+        let index = toDoList.indexOf(myList);
         newLi.innerHTML = " ";
+
+        //toDoList.replac("")
         toDoList.splice(index,1)
+
+        console.log(index)
         console.log(toDoList)
     }
     else {
