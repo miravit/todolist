@@ -35,9 +35,7 @@ for (i=0;i<toDoList.length;i++){
     newUl.appendChild(newLi);
     myDiv.appendChild(newUl);
     newLi.addEventListener("click", ()=>{ 
-        myCheckbox(newInput, newLi, theList)}); //när jag klickar skickas dessa 3 värden till min function myCheckBox()
-        
-        
+        myCheckbox(newInput, newLi, theList)}); //när jag klickar skickas dessa 3 värden till min function myCheckBox()       
 
 } 
 
@@ -48,14 +46,13 @@ console.log(toDoList) //skriver mina objekt. Här syns även att done:false
 function myCheckbox(myInput, newLi, clickedItem) {
     
     
-    if (myInput.checked) {
+    if (myInput.checked) { //om checboxen är iklickad kör koden. Behöver inte skriva ===true eftersom iklickad checkbox alltid är true
         let index = toDoList.indexOf(clickedItem);
         newLi.innerHTML = ""; //gör att listan blir tom och försvinner
-        toDoList.splice(index,1)
-        console.log("denna todo låg på på index " +index)
-        if (clickedItem.done===false){
-            clickedItem.done=true;
-            //console.log(clickedItem.done) 
+        toDoList.splice(index,1) //tar bort ur listan
+        console.log("denna todo låg på på index " +index+ " och position "+(index+1))
+        if (clickedItem.done===false){ 
+            clickedItem.done=true; //om done:false vilket den alltid är för jag bestämt det,ska den ändras till true. Alltså när det är klar är den done:true
             console.log(clickedItem) //här är done:true
             return clickedItem;
             
