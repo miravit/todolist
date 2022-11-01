@@ -1,20 +1,18 @@
 
-class Todo {
-    constructor(name, finished) {
-        this.name=name;
-        this.finished=finished;
-    }
-}
+
 window.onload = function() {
     createList();
-    //console.log(toDoList);
-    
+    //console.log(toDoList);   
 }
 
-let item = [new Todo ("äta", false), new Todo ("duscha",false),new Todo ("gymma",false),new Todo ("plugga",false)];
-let toDoList = [];
-toDoList.push(item);
-console.log(toDoList)
+class Todo {
+    constructor(things,done){
+        this.things=things;
+        this.done=done;
+    }
+} 
+
+let toDoList = [new Todo("äta",false),new Todo("gymma",false),new Todo("plugga",false),new Todo("sova",false),new Todo("städa",false),]
 
 
 function createList(){
@@ -30,14 +28,16 @@ for (i=0;i<toDoList.length;i++){
     let newInput = document.createElement("input")
     newInput.setAttribute("type","checkbox");
 
-    newLi.innerHTML+=toDoList[i];
+    newLi.innerHTML+=toDoList[i].things;
     let hej = toDoList[i];
     newLi.appendChild(newInput); 
     newUl.appendChild(newLi);
     myDiv.appendChild(newUl);
     newLi.addEventListener("click", ()=>{
         myCheckbox(newInput, newLi, hej)}); 
+        console.log(toDoList[i])
         
+
 } 
  
 }
@@ -53,7 +53,7 @@ function myCheckbox(myInput, newLi, myList) {
         toDoList.splice(index,1)
 
         console.log(index)
-        console.log(toDoList)
+        //console.log(toDoList)
     }
     else {
 
