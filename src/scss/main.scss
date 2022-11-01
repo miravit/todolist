@@ -1,7 +1,13 @@
-#ul {
+body {
+    background-color: rgb(205, 185, 224);
+}
+
+.container {
     display: flex;
-    flex-direction: column;
-   justify-content: center;
-   background-color: orange;
-   
+    background-color: rgb(147, 112, 182);
+    justify-content: center;
+
+}
+.todoList {
+list-style: none;
 }
