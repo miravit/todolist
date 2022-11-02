@@ -2,7 +2,8 @@
 
 window.onload = function() {
     createList();
-    //console.log(toDoList);   
+    myButton();
+    console.log(toDoList);   
 }
 
 class Todo {
@@ -12,8 +13,6 @@ class Todo {
         this.done=done;
     }      
     }
- 
-
 
 let toDoList = 
 [new Todo("äta",new Date(),false)
@@ -47,14 +46,10 @@ for (i=0;i<toDoList.length;i++){
     newUl.appendChild(newLi);
     myDiv.appendChild(newUl);
     newLi.addEventListener("click", ()=>{ 
-        myCheckbox(newInput, newLi, theList, )}); //när jag klickar skickas dessa 3 värden till min function myCheckBox()       
-        
-
+        myCheckbox(newInput, newLi, theList, )}); //när jag klickar skickas dessa 3 värden till min function myCheckBox()              
 } 
 
-
-
-console.log(toDoList) //skriver mina objekt. Här syns även att done:false
+//console.log(toDoList) //skriver mina objekt. Här syns även att done:false
 
 function myCheckbox(myInput, newLi, clickedItem,) {
     if (myInput.checked) { //om checkboxen är iklickad kör koden. Behöver inte skriva ===true eftersom iklickad checkbox alltid är true
@@ -72,7 +67,7 @@ function myCheckbox(myInput, newLi, clickedItem,) {
             checkedUl.className="checkedUl";
             let checkedli = document.createElement("li");
             let checkedInput = document.createElement("input");
-           let myNewCheckedInput = checkedInput.setAttribute("type", "checkbox");
+            checkedInput.setAttribute("type", "checkbox");
             checkedUl.appendChild(checkedli);
            checkedli.appendChild(checkedInput);
             checkedDiv.appendChild(checkedUl);
@@ -80,7 +75,7 @@ function myCheckbox(myInput, newLi, clickedItem,) {
            checkedli.innerHTML+=clickedItem.things;
            let myValue = clickedItem.things;
             checkedli.addEventListener("click", ()=>{ 
-                goBack(myNewCheckedInput,checkedli, newLi, myValue, checkedInput,clickedItem)});
+                goBack(checkedli, newLi, myValue, checkedInput,clickedItem)});
                 
                  
                 if (clickedItem.done===true) {
@@ -96,22 +91,39 @@ function myCheckbox(myInput, newLi, clickedItem,) {
  
 }
 
-function goBack (checked,newCheckedLi, newLi, theValue, checkedInput, clickedItem) { //här försöker jag göra tt klickevent så att ifall de gjorda chheckboxarna klickas i ska de åka tillbaka till ursprungslistan 
+function goBack (newCheckedLi, newLi, theValue, checkedInput, clickedItem) { //här försöker jag göra tt klickevent så att ifall de gjorda chheckboxarna klickas i ska de åka tillbaka till ursprungslistan 
         toDoList.push(clickedItem)
-        toDoListChecked.pop() //funkar om man tar bort en i taget.
+        toDoListChecked.pop() 
         newCheckedLi.innerHTML=" "; 
         newLi.innerHTML=theValue;
         newLi.appendChild(checkedInput);
-       console.log(toDoListChecked)
        check()
+       
 
 }
 //console.log(toDoListChecked) //Nya listan uppdaterad med sakerna som är gjorda
-console.log(toDoList)
+console.log("vad som finns kvar i listan: ",toDoList) 
 }
 }
 }
 
 function check () { // kollar om det funkar.
-    console.log(toDoList)
+    console.log("uppdaterad lista",toDoList)
 }
+
+function myButton() { //min "lägg till"-knapp
+let inputButton = document.getElementById("btn");
+inputButton.addEventListener("click", addToList); //
+}
+
+function addToList() { //sparar value från input och gör om den till false. Vet dock inte hur jag ska få in den i min klass.
+    let inputValue = document.getElementById("userForm").value;
+    console.log(inputValue)
+    BackToList = new Todo(inputValue,new Date(),false)
+    toDoList.push(BackToList);
+    console.log(BackToList) //nu måste jag bara skicka in denna i min lista.
+    createList();
+
+    
+}
+
