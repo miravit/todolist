@@ -84,7 +84,8 @@ function myCheckbox(myInput, newLi, clickedItem,) {
                 
                  
                 if (clickedItem.done===true) {
-                    toDoListChecked.push(clickedItem.things)
+                   let changeToFalse = clickedItem.done=false
+                    toDoListChecked.push(changeToFalse.things)
                      //här pushar till min lista som hetere toDoListChecked så att mina gjorda saker ska samlas i en egen lista
                     
                     
@@ -105,7 +106,7 @@ function goBack (checked,newCheckedLi, newLi, theValue, checkedInput, clickedIte
        check()
 
 }
-console.log(toDoListChecked) //Nya listan uppdaterad med sakerna som är gjorda
+//console.log(toDoListChecked) //Nya listan uppdaterad med sakerna som är gjorda
 console.log(toDoList)
 }
 }
