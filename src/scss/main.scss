@@ -2,6 +2,10 @@ body {
     background-color: rgb(205, 185, 224);
 
 }
+h3 {
+    font-family:Georgia, 'Times New Roman', Times, serif ;
+    font-weight: bold;
+}
 .formContainer {
 margin-top: 30px;
  display: flex;
@@ -38,6 +42,9 @@ margin-top: 30px;
 }
 li{
     list-style: none;
+    margin-left: 30px;
+    font-weight: bold;
+    
     }
      
 
@@ -45,6 +52,7 @@ li{
     display: flex;
     flex-direction: column;
 }
-.checkedDiv {
-    margin: 30px;
+input {
+ margin-right: 20px;
 }
+
