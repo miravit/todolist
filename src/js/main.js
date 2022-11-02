@@ -96,16 +96,21 @@ function myCheckbox(myInput, newLi, clickedItem,) {
 }
 
 function goBack (checked,newCheckedLi, newLi, theValue, checkedInput, clickedItem) { //här försöker jag göra tt klickevent så att ifall de gjorda chheckboxarna klickas i ska de åka tillbaka till ursprungslistan 
-        toDoList.push(clickedItem.things)
+        toDoList.push(clickedItem)
         toDoListChecked.pop() //funkar om man tar bort en i taget.
         newCheckedLi.innerHTML=" "; 
         newLi.innerHTML=theValue;
         newLi.appendChild(checkedInput);
        console.log(toDoListChecked)
+       check()
 
 }
 console.log(toDoListChecked) //Nya listan uppdaterad med sakerna som är gjorda
+console.log(toDoList)
 }
 }
 }
 
+function check () { // kollar om det funkar.
+    console.log(toDoList)
+}
