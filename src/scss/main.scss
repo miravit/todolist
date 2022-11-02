@@ -25,8 +25,10 @@ margin-top: 30px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 60vw;
     margin-top: 25px;
     background-color: rgb(147, 112, 182);
+    border: solid 2px white;
         .todoList {
             display: flex;
            justify-content:space-between;
@@ -40,11 +42,9 @@ margin-top: 30px;
          
       }  
 }
-li{
+li {
     list-style: none;
     margin-left: 30px;
-    font-weight: bold;
-    
     }
      
 
@@ -56,3 +56,9 @@ input {
  margin-right: 20px;
 }
 
+.checkedDiv  li{
+    list-style: none;
+    margin-left: 30px;
+    text-decoration: line-through;
+    }
+     
