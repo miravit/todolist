@@ -118,10 +118,5 @@ window.onload = function() {
     toDoList.push(BackToList);
     console.log(BackToList) //Här ser jag att det jag skrivit blir ett objekt som matchar min lista.nu måste jag bara skicka in denna i min lista.
     createList()//nu loopas hela listan igen + nya värdet. vill bara få ut nya värdet. Bhövr jag göra en ny loop kanske?
-   
-
-     
-    
-  
   }
   
