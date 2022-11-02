@@ -10,10 +10,17 @@ class Todo {
         this.things=things;
         this.date=date;
         this.done=done;
+    }      
     }
-} 
+ 
 
-let toDoList = [new Todo("äta",new Date(),false),new Todo("gymma",new Date(),false),new Todo("plugga",new Date(),false),new Todo("sova",new Date(),false),new Todo("städa",new Date(),false),]
+
+let toDoList = 
+[new Todo("äta",new Date(),false)
+,new Todo("gymma",new Date(),false)
+,new Todo("plugga",new Date(),false)
+,new Todo("sova",new Date(),false)
+,new Todo("städa",new Date(),false),]
 
 let toDoListChecked = [];
 
@@ -41,10 +48,11 @@ for (i=0;i<toDoList.length;i++){
     myDiv.appendChild(newUl);
     newLi.addEventListener("click", ()=>{ 
         myCheckbox(newInput, newLi, theList, )}); //när jag klickar skickas dessa 3 värden till min function myCheckBox()       
+        
 
 } 
 
-}
+
 
 console.log(toDoList) //skriver mina objekt. Här syns även att done:false
 
@@ -56,7 +64,6 @@ function myCheckbox(myInput, newLi, clickedItem,) {
         console.log("denna todo låg på på index " +index+ " och position "+(index+1))
         if (clickedItem.done===false){ 
             clickedItem.done=true; //om done:false vilket den alltid är för jag bestämt det,ska den ändras till true. Alltså när det är klar är den done:true
-            console.log(clickedItem) //här är done:true
             
             //return clickedItem;
             let checkedDiv = document.createElement("div");
@@ -73,26 +80,32 @@ function myCheckbox(myInput, newLi, clickedItem,) {
            checkedli.innerHTML+=clickedItem.things;
            let myValue = clickedItem.things;
             checkedli.addEventListener("click", ()=>{ 
-                goBack(myNewCheckedInput,checkedli, newLi, myValue)});
-                console.log("hshjdwh" ,newLi)
+                goBack(myNewCheckedInput,checkedli, newLi, myValue, checkedInput,clickedItem)});
                 
+                 
                 if (clickedItem.done===true) {
-                    toDoListChecked.push(clickedItem); //här pushar till min lista som hetere toDoListChecked så att mina gjorda saker ska samlas i en egen lista
+                    toDoListChecked.push(clickedItem.things)
+                     //här pushar till min lista som hetere toDoListChecked så att mina gjorda saker ska samlas i en egen lista
+                    
+                    
         }
     }
     else {
        
  
 }
-function goBack (checked,newCheckedLi, newLi, theValue) { //här försöker jag göra tt klickevent så att ifall de gjorda chheckboxarna klickas i ska de åka tillbaka till ursprungslistan
 
-    console.log("hej"+theValue)  
-        toDoList.push(checked); 
+function goBack (checked,newCheckedLi, newLi, theValue, checkedInput, clickedItem) { //här försöker jag göra tt klickevent så att ifall de gjorda chheckboxarna klickas i ska de åka tillbaka till ursprungslistan 
+        toDoList.push(clickedItem.things)
+        toDoListChecked.pop() //funkar om man tar bort en i taget.
         newCheckedLi.innerHTML=" "; 
         newLi.innerHTML=theValue;
+        newLi.appendChild(checkedInput);
+       console.log(toDoListChecked)
 
 }
 console.log(toDoListChecked) //Nya listan uppdaterad med sakerna som är gjorda
+}
 }
 }
 
