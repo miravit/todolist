@@ -36,7 +36,6 @@ for (i=0;i<toDoList.length;i++){
   let newInput = document.createElement("input")
   newInput.setAttribute("type","checkbox"); //gör input till en checkbox
   newInput.className="inputBox"
-
   newLi.innerHTML+=toDoList[i].things;
   let theList = toDoList[i]; //skapar en variabel till min lista som loopas
   newLi.appendChild(newInput); 
@@ -45,6 +44,7 @@ for (i=0;i<toDoList.length;i++){
   newLi.addEventListener("click", ()=>{ 
       myCheckbox(newInput, newLi, theList, )}); //när jag klickar skickas dessa 3 värden till min function myCheckBox()              
 } 
+
 
 //console.log(toDoList) //skriver mina objekt. Här syns även att done:false
 
@@ -110,11 +110,18 @@ inputButton.addEventListener("click", addToList); //
 
 function addToList() { //sparar value från input och gör om den till false. Vet dock inte hur jag ska få in den i min klass.
   let inputValue = document.getElementById("userForm").value;
-  console.log(inputValue)
+  //console.log(inputValue)
+
+
   BackToList = new Todo(inputValue,new Date(),false)
   toDoList.push(BackToList);
   console.log(BackToList) //nu måste jag bara skicka in denna i min lista.
-  createList(); //nu loopas hela listan igen + nya värdet. vill bara få ut nya värdet. Bhövr jag göra en ny loop kanske?
+  createList();
+  
+ 
+
+   //nu loopas hela listan igen + nya värdet. vill bara få ut nya värdet. Bhövr jag göra en ny loop kanske?
+  
 
 }
 

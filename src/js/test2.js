@@ -129,13 +129,13 @@ window.onload = function() {
     console.log(inputValue)
 
 
-    BackToList = new Todo(inputValue,new Date(),false)
-    toDoList.push(BackToList);
+    backToList = new Todo(inputValue,new Date(),false)
+    toDoList.push(backToList);
     console.log(BackToList) //nu måste jag bara skicka in denna i min lista.
     
    
 
-    //createList(); //nu loopas hela listan igen + nya värdet. vill bara få ut nya värdet. Bhövr jag göra en ny loop kanske?
+    createList(); //Om jag anropar den här funktionenloopas hela listan igen + nya värdet. vill bara få ut nya värdet. Bhövr jag göra en ny loop kanske?
     
   
   }

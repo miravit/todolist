@@ -45,6 +45,7 @@ window.onload = function() {
         myCheckbox(newInput, newLi, theList, )}); //när jag klickar skickas dessa 3 värden till min function myCheckBox()              
   } 
 
+
   
   //console.log(toDoList) //skriver mina objekt. Här syns även att done:false
   
@@ -53,7 +54,7 @@ window.onload = function() {
         let index = toDoList.indexOf(clickedItem);
         newLi.innerHTML = ""; //gör att listan blir tom och försvinner
         toDoList.splice(index,1) //tar bort ur listan
-        console.log("denna todo låg på på index " +index+ " och position "+(index+1))
+        console.log("denna todo låg på på index " +index+ " och position "+(index+1));
         if (clickedItem.done===false){ 
             clickedItem.done=true; //om done:false vilket den alltid är för jag bestämt det,ska den ändras till true. Alltså när det är klar är den done:true
             
@@ -110,18 +111,17 @@ window.onload = function() {
   
   function addToList() { //sparar value från input och gör om den till false. Vet dock inte hur jag ska få in den i min klass.
     let inputValue = document.getElementById("userForm").value;
-    console.log(inputValue)
+    //console.log(inputValue)
 
 
     BackToList = new Todo(inputValue,new Date(),false)
     toDoList.push(BackToList);
-    console.log(BackToList) //nu måste jag bara skicka in denna i min lista.
-    
+    console.log(BackToList) //Här ser jag att det jag skrivit blir ett objekt som matchar min lista.nu måste jag bara skicka in denna i min lista.
+    createList()//nu loopas hela listan igen + nya värdet. vill bara få ut nya värdet. Bhövr jag göra en ny loop kanske?
    
 
-    //createList(); //nu loopas hela listan igen + nya värdet. vill bara få ut nya värdet. Bhövr jag göra en ny loop kanske?
+     
     
   
   }
-  
   
