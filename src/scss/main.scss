@@ -1,13 +1,47 @@
 body {
     background-color: rgb(205, 185, 224);
+
+}
+.formContainer {
+margin-top: 30px;
+ display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    #userForm {
+        width: 300px;
+        height: 40px;
+        border-radius: 30%;
+        border: solid 7px rgb(147, 112, 182);;
+    }
 }
 
 .container {
     display: flex;
-    background-color: rgb(147, 112, 182);
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+    background-color: rgb(147, 112, 182);
+        .todoList {
+            display: flex;
+           justify-content:space-between;
+           margin-left: 150px;
+           margin-right: 150px;
+           
+        }
+      ul {
+          padding-inline-start: 0;
+          padding-top: 15px;
+      }  
+}
+li{
+    list-style: none;
+    }
+     
 
+.Mydiv {
+    display: flex;
+    flex-direction: column;
 }
-.todoList {
-list-style: none;
-}
+

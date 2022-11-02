@@ -4,15 +4,31 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+    crossorigin="anonymous"
+  />
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+    crossorigin="anonymous"
+  ></script>
     <title>TO DO LIST</title>
     <link href="scss/main.scss" rel="stylesheet" />
     <script defer src="js/main.js"></script>
   </head>
   <body>
-    <label for="">Skriv här:
+    <div class=formContainer>
+      <h3>My To-Do-List</h3>
+      <form class ="inputForm">
+    <label for="">Ny Todo:
     </label>
     <input id="userForm"></input>
-    <button type="button" id="btn">Lägg till</button>
+    <button type="button" class="btn btn-light" id="btn">Lägg till</button>
+  </form>
+  </div>
 <div id="listdiv">
   <ul id ="myUl"></ul>
 </div>

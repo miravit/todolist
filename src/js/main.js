@@ -6,13 +6,17 @@ window.onload = function() {
 }
 
 class Todo {
-    constructor(things,done){
+    constructor(things,date,done){
         this.things=things;
+        this.date=date;
         this.done=done;
     }
 } 
 
-let toDoList = [new Todo("äta",false),new Todo("gymma",false),new Todo("plugga",false),new Todo("sova",false),new Todo("städa",false),]
+let toDoList = [new Todo("äta",new Date(),false),new Todo("gymma",new Date(),false),new Todo("plugga",new Date(),false),new Todo("sova",new Date(),false),new Todo("städa",new Date(),false),]
+
+let toDoListChecked = [];
+
 
 //myList = toDoList;
 
@@ -28,6 +32,7 @@ for (i=0;i<toDoList.length;i++){
     newLi.className="todoList"
     let newInput = document.createElement("input")
     newInput.setAttribute("type","checkbox"); //gör input till en checkbox
+    newInput.className="inputBox"
 
     newLi.innerHTML+=toDoList[i].things;
     let theList = toDoList[i]; //skapar en variabel till min lista som loopas
@@ -35,7 +40,7 @@ for (i=0;i<toDoList.length;i++){
     newUl.appendChild(newLi);
     myDiv.appendChild(newUl);
     newLi.addEventListener("click", ()=>{ 
-        myCheckbox(newInput, newLi, theList)}); //när jag klickar skickas dessa 3 värden till min function myCheckBox()       
+        myCheckbox(newInput, newLi, theList, )}); //när jag klickar skickas dessa 3 värden till min function myCheckBox()       
 
 } 
 
@@ -43,7 +48,7 @@ for (i=0;i<toDoList.length;i++){
 
 console.log(toDoList) //skriver mina objekt. Här syns även att done:false
 
-function myCheckbox(myInput, newLi, clickedItem) {
+function myCheckbox(myInput, newLi, clickedItem,) {
     
     
     if (myInput.checked) { //om checboxen är iklickad kör koden. Behöver inte skriva ===true eftersom iklickad checkbox alltid är true
@@ -54,7 +59,21 @@ function myCheckbox(myInput, newLi, clickedItem) {
         if (clickedItem.done===false){ 
             clickedItem.done=true; //om done:false vilket den alltid är för jag bestämt det,ska den ändras till true. Alltså när det är klar är den done:true
             console.log(clickedItem) //här är done:true
-            return clickedItem;
+            toDoListChecked.push(clickedItem); //pushar till min tomma lista
+            console.log(toDoListChecked)
+            //return clickedItem;
+            let checkedDiv = document.createElement("div");
+            checkedDiv.className = "checkedDiv"
+            let checkedUl = document.createElement("ul");
+            checkedUl.className="checkedUl";
+            let checkedli = document.createElement("li");
+            let checkedInput = document.createElement("input");
+            checkedInput.setAttribute("type", "checkbox");
+            checkedUl.appendChild(checkedli);
+            checkedli.appendChild(checkedInput);
+            checkedDiv.appendChild(checkedUl);
+            document.body.appendChild(checkedDiv);
+            
             
         }
     }
