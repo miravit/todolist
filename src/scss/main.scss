@@ -33,6 +33,7 @@ margin-top: 30px;
       ul {
           padding-inline-start: 0;
           padding-top: 15px;
+         
       }  
 }
 li{
@@ -44,4 +45,6 @@ li{
     display: flex;
     flex-direction: column;
 }
-
+.checkedDiv {
+    margin: 30px;
+}
