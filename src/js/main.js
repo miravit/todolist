@@ -46,7 +46,6 @@ window.onload = function() {
         sortList(toDoList,myDiv)});
        
         
-        
   //console.log(toDoList) //skriver mina objekt. Här syns även att done:false
   
   function myCheckbox(myInput, newLi, clickedItem,) {
@@ -123,7 +122,6 @@ function sortList (theList,myDiv) {
   let newList = [] //ny array för min sorterade lista
   let sortUl = document.createElement("ul");
   sortUl.className="sortUl";
-  sortUl.innerHTML="";
   for (let i=0; i<theList.length;i++) {
   let result =theList[i].things //gör om varje item till en variabel så jag kan busha den till min array.
   newList.push(result) 
