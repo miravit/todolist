@@ -115,7 +115,6 @@ window.onload = function() {
     toDoList.push(BackToList);
     console.log(BackToList) //Här ser jag att det jag skrivit blir ett objekt som matchar min lista.nu måste jag bara skicka in denna i min lista.
     createList()//nu loopas hela listan igen + nya värdet. vill bara få ut nya värdet. Bhövr jag göra en ny loop kanske?
-    clearValue(inputValue)
   }
   
 
@@ -128,7 +127,6 @@ function sortList (theList,myDiv) {
   let result =theList[i].things //gör om varje item till en variabel så jag kan busha den till min array.
   newList.push(result) 
 }
-
 newList.sort()
 let sortLi = document.createElement("li");
 sortLi.className="sortLi";
@@ -136,5 +134,4 @@ sortLi.innerHTML=newList;
 myDiv.appendChild(sortUl);
 sortUl.appendChild(sortLi);
 //return newList;
-
 }
