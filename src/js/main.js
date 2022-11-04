@@ -40,9 +40,11 @@ window.onload = function() {
     newLi.addEventListener("click", ()=>{ 
         myCheckbox(newInput, newLi, theList, )}); //när jag klickar skickas dessa 3 värden till min function myCheckBox()              
       } 
+      
       let buttonSort = document.getElementById("btnSort")
       buttonSort.addEventListener("click", ()=>{ //klickevent för ming sortera-knapp. skickar med min lista.
         sortList(toDoList,myDiv)});
+       
         
         
   //console.log(toDoList) //skriver mina objekt. Här syns även att done:false
@@ -115,15 +117,17 @@ window.onload = function() {
     createList()//nu loopas hela listan igen + nya värdet. vill bara få ut nya värdet. Bhövr jag göra en ny loop kanske?
   }
   
-let newList = []
 
-function sortList (theList,myDiv) { //skickar min lista hit och gör om till array för att kunna lägga in i en lista och använda sort().
+
+function sortList (theList,myDiv) { 
+  let newList = [] //ny array för min sorterade lista
   let sortUl = document.createElement("ul");
   sortUl.className="sortUl";
   sortUl.innerHTML="";
   for (let i=0; i<theList.length;i++) {
-  let result =theList[i].things
-  newList.push(result)
+  let result =theList[i].things //gör om varje item till en variabel så jag kan busha den till min array.
+  newList.push(result) 
+ 
 }
 newList.sort()
 
@@ -132,10 +136,11 @@ sortLi.className="sortLi";
 sortLi.innerHTML=newList;
 myDiv.appendChild(sortUl);
 sortUl.appendChild(sortLi);
+return newList;
 ;
 
 
-console.log(newList)
+
 }
 
 
