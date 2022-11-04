@@ -1,9 +1,14 @@
+//SENASTE GITVERSIONEN
+
+
+
 import { Todo } from "./models/Todolist";
 
 
 window.onload = function() {
     createList();
     myButton();
+    sortButton();
     console.log(toDoList);   
   }
   
@@ -15,14 +20,16 @@ window.onload = function() {
   ,new Todo("städa",new Date(),false)
 ]
   let toDoListChecked = [];
-  let myDiv = document.getElementById("listdiv");
-  let newUl = document.getElementById("myUl");
+
  
   function createList(){
+  let myDiv = document.getElementById("listdiv");
+  let newUl = document.getElementById("myUl");
   myDiv.className="container";
   newUl.className="todoUl";
   myDiv.appendChild(newUl);
-  myDiv.innerHTML = "";
+  newUl.innerHTML= " ";
+
   for (i=0;i<toDoList.length;i++){
     let newLi = document.createElement("li");
     newLi.className="todoList"
@@ -104,6 +111,13 @@ window.onload = function() {
     BackToList = new Todo(inputValue,new Date(),false)
     toDoList.push(BackToList);
     console.log(BackToList) //Här ser jag att det jag skrivit blir ett objekt som matchar min lista.nu måste jag bara skicka in denna i min lista.
-    //createList()//nu loopas hela listan igen + nya värdet. vill bara få ut nya värdet. Bhövr jag göra en ny loop kanske?
+    createList()//nu loopas hela listan igen + nya värdet. vill bara få ut nya värdet. Bhövr jag göra en ny loop kanske?
   }
   
+function sortButton() {
+
+}
+
+function sortList () {
+
+}

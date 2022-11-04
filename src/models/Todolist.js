@@ -3,5 +3,5 @@ export class Todo {
         this.things=things;
         this.date=date;
         this.done=done;
-    }      
     }
+}
