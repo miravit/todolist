@@ -3,7 +3,8 @@ import { Todo } from "../models/Todolist";
 window.onload = function() {
     createList();
     myButton();
-    console.log(toDoList);   
+    console.log(toDoList);  
+    
   }
   
   let toDoList = 
@@ -16,7 +17,7 @@ window.onload = function() {
   let toDoListChecked = [];
   
 
- 
+
   function createList(){
   let myDiv = document.getElementById("listdiv");
   let newUl = document.getElementById("myUl");
@@ -40,10 +41,10 @@ window.onload = function() {
     newLi.addEventListener("click", ()=>{ 
         myCheckbox(newInput, newLi, theList, )}); //när jag klickar skickas dessa 3 värden till min function myCheckBox()              
       } 
-      
       let buttonSort = document.getElementById("btnSort")
       buttonSort.addEventListener("click", ()=>{ //klickevent för ming sortera-knapp. skickar med min lista.
         sortList(toDoList,myDiv)});
+      
        
         
   //console.log(toDoList) //skriver mina objekt. Här syns även att done:false
@@ -114,6 +115,7 @@ window.onload = function() {
     toDoList.push(BackToList);
     console.log(BackToList) //Här ser jag att det jag skrivit blir ett objekt som matchar min lista.nu måste jag bara skicka in denna i min lista.
     createList()//nu loopas hela listan igen + nya värdet. vill bara få ut nya värdet. Bhövr jag göra en ny loop kanske?
+    clearValue(inputValue)
   }
   
 
@@ -125,20 +127,14 @@ function sortList (theList,myDiv) {
   for (let i=0; i<theList.length;i++) {
   let result =theList[i].things //gör om varje item till en variabel så jag kan busha den till min array.
   newList.push(result) 
- 
 }
-newList.sort()
 
+newList.sort()
 let sortLi = document.createElement("li");
 sortLi.className="sortLi";
 sortLi.innerHTML=newList;
 myDiv.appendChild(sortUl);
 sortUl.appendChild(sortLi);
-return newList;
-;
-
-
+//return newList;
 
 }
-
-
