@@ -1,8 +1,7 @@
-import { Todo } from "../models/Todolist";
+import { Todo } from "./models/Todolist";
 
 window.onload = function () {
   createList();
-  myButton();
   console.log(toDoList);
 };
 
@@ -38,13 +37,6 @@ function createList() {
       myCheckbox(newInput, newLi, theList);
     }); //när jag klickar skickas dessa 3 värden till min function myCheckBox()
   }
-  let buttonSort = document.getElementById("btnSort");
-  buttonSort.addEventListener("click", () => {
-    //klickevent för ming sortera-knapp. skickar med min lista.
-    sortList(toDoList, myDiv);
-  });
-
-  //console.log(toDoList) //skriver mina objekt. Här syns även att done:false
 
   function myCheckbox(myInput, newLi, clickedItem) {
     if (myInput.checked) {
@@ -95,7 +87,6 @@ function createList() {
         newCheckedLi.innerHTML = " "; //tömmer min li-tag
         newLi.innerHTML = theValue; // skriver ut clickeditems.things, dvs todolis.things
         newLi.appendChild(checkedInput); //kopplar ihop med checkbox med li
-        check(); //anropar en funktion som visar min uppdaterade lista i konsollen för att hålla kolla på att objekten blir som de ska.
       }
       //Nya listan uppdaterad med sakerna som är gjorda
       console.log("vad som finns kvar i listan: ", toDoList);
@@ -103,19 +94,11 @@ function createList() {
   }
 }
 
-function check() {
-  // kollar om det funkar.
-  console.log("uppdaterad lista", toDoList);
-}
-
-function myButton() {
-  //min "lägg till"-knapp
-  let inputButton = document.getElementById("btn");
-  inputButton.addEventListener("click", addToList); //
-}
+//min "lägg till"-knapp
+let inputButton = document.getElementById("btn");
+inputButton.addEventListener("click", addToList); //
 
 function addToList() {
-  //sparar value från input och gör om den till false. Vet dock inte hur jag ska få in den i min klass.
   let inputValue = document.getElementById("userForm").value;
   //console.log(inputValue)
   BackToList = new Todo(inputValue, new Date(), false);
@@ -124,22 +107,5 @@ function addToList() {
   createList(); //nu loopas hela listan igen + nya värdet. vill bara få ut nya värdet. Bhövr jag göra en ny loop kanske?
 }
 
-function sortList(theList, myDiv) {
-  let newList = []; //ny array för min sorterade lista
-  let sortUl = document.createElement("ul");
-  sortUl.className = "sortUl";
-  for (let i = 0; i < theList.length; i++) {
-    let result = theList[i].things; //gör om varje item till en variabel så jag kan busha den till min array.
-    SendToEmptyList(result);
-  }
-  function SendToEmptyList(result) {
-    newList.push(result); //newList.push(result); //lägger till mina items i min tomma lista Newlist.
-  }
-  newList.sort(); //en sorteringsfunktion
-  let sortLi = document.createElement("li");
-  sortLi.className = "sortLi";
-  sortLi.innerHTML = newList; //skapar en ny li jag skriver ut listan på
-  myDiv.appendChild(sortUl); //använder mig av samma div och ul som innan. Dessa har skickats till min funktionsparameter.
-  sortUl.appendChild(sortLi);
-  //return newList;
-}
+// test
+//test
